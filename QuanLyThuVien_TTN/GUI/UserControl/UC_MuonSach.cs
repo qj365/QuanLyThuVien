@@ -24,7 +24,7 @@ namespace QuanLyThuVien_TTN
                     txtNguoiMuon.Text = dg.Tendocgia;
                     txtGT.Text = dg.Gioitinh;
                     txtDiaChi.Text = dg.Diachi;
-                    txtSDT.Text = dg.Sdt;
+                    txtSDT.Text = dg.Sodienthoai;
                 }
 
             }
