@@ -12,7 +12,7 @@ namespace QuanLyThuVien_TTN.DAO
     {
         private static DataProvider instance;
 
-        static string connectionStr = @"Data Source=.\sqlexpress;Initial Catalog=QLTV_TTN;Integrated Security=True";
+        static string connectionStr = @"Data Source=(local);Initial Catalog=QLTV_TTN;Integrated Security=True";
         private static readonly SqlConnection con = new SqlConnection(connectionStr);
         //asdasdasd
         internal static DataProvider Instance

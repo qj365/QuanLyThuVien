@@ -74,5 +74,40 @@ namespace QuanLyThuVien_TTN.DAO
             DateTime hantra = table.Rows[0].Field<DateTime>("hantra");
             return hantra;
         }
+
+        public List<Sach> GetListSach()
+        {
+            List<Sach> list = new List<Sach>();
+            DataTable data = DataProvider.Instance.executeQuery("select MASACH,NAMXUATBAN,SACH.MADAUSACH,TENDAUSACH from SACH, DAUSACH where SACH.MADAUSACH=DAUSACH.MADAUSACH ");
+
+            foreach (DataRow item in data.Rows)
+            {
+                Sach s = new Sach(item);
+                list.Add(s);
+            }
+            return list;
+        }
+
+        //Tim kiem
+        public List<Sach> SearchS(string masach, string dausach)
+        {
+            List<Sach> list = new List<Sach>();
+            string query = string.Format("select * from SACH where (MASACH like N'{0}') OR (MADAUSACH like N'{1}')", masach, dausach);
+            DataTable data = DataProvider.Instance.executeQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Sach s = new Sach(item);
+                list.Add(s);
+            }
+            return list;
+        }
+        public bool DeleteS(string mas)
+        {
+            string query = string.Format(" delete from dbo.SACH where MASACH = N'{0}' ", mas);
+            int result = DataProvider.Instance.executeNonQuery(query);
+
+            return result > 0;
+        }
     }
 }

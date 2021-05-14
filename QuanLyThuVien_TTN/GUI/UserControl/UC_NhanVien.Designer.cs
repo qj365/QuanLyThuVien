@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnReLoadNV = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.txbTimKiemNV = new System.Windows.Forms.TextBox();
+            this.btnReLoadNV = new FontAwesome.Sharp.IconButton();
             this.btnTimKiemNV = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbGioiTinhNV = new System.Windows.Forms.ComboBox();
             this.btnHuyNV = new FontAwesome.Sharp.IconButton();
             this.btnLuuNV = new FontAwesome.Sharp.IconButton();
             this.btnThemNV = new FontAwesome.Sharp.IconButton();
@@ -47,12 +50,11 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txbMaNV = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbGioiTinhNV = new System.Windows.Forms.ComboBox();
+            this.dtgvNV = new System.Windows.Forms.DataGridView();
+            this.txbPassWordNV = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -67,6 +69,29 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(948, 74);
             this.panel2.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 32);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Tìm kiếm";
+            // 
+            // txbTimKiemNV
+            // 
+            this.txbTimKiemNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbTimKiemNV.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTimKiemNV.ForeColor = System.Drawing.Color.LightGray;
+            this.txbTimKiemNV.Location = new System.Drawing.Point(167, 12);
+            this.txbTimKiemNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTimKiemNV.Name = "txbTimKiemNV";
+            this.txbTimKiemNV.Size = new System.Drawing.Size(574, 36);
+            this.txbTimKiemNV.TabIndex = 29;
+            this.txbTimKiemNV.Text = "Nhập từ khóa tìm kiếm";
+            this.txbTimKiemNV.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txbTimKiemNV_MouseClick);
             // 
             // btnReLoadNV
             // 
@@ -87,18 +112,7 @@
             this.btnReLoadNV.TabIndex = 41;
             this.btnReLoadNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReLoadNV.UseVisualStyleBackColor = false;
-            // 
-            // txbTimKiemNV
-            // 
-            this.txbTimKiemNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbTimKiemNV.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTimKiemNV.ForeColor = System.Drawing.Color.LightGray;
-            this.txbTimKiemNV.Location = new System.Drawing.Point(167, 12);
-            this.txbTimKiemNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbTimKiemNV.Name = "txbTimKiemNV";
-            this.txbTimKiemNV.Size = new System.Drawing.Size(574, 36);
-            this.txbTimKiemNV.TabIndex = 29;
-            this.txbTimKiemNV.Text = "Nhập từ khóa tìm kiếm";
+            this.btnReLoadNV.Click += new System.EventHandler(this.btnReLoadNV_Click);
             // 
             // btnTimKiemNV
             // 
@@ -119,10 +133,13 @@
             this.btnTimKiemNV.TabIndex = 35;
             this.btnTimKiemNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiemNV.UseVisualStyleBackColor = false;
+            this.btnTimKiemNV.Click += new System.EventHandler(this.btnTimKiemNV_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.txbPassWordNV);
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.cbGioiTinhNV);
             this.panel3.Controls.Add(this.btnHuyNV);
             this.panel3.Controls.Add(this.btnLuuNV);
@@ -144,6 +161,27 @@
             this.panel3.Size = new System.Drawing.Size(452, 734);
             this.panel3.TabIndex = 7;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 461);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 32);
+            this.label2.TabIndex = 72;
+            this.label2.Text = "PassWord:";
+            // 
+            // cbGioiTinhNV
+            // 
+            this.cbGioiTinhNV.FormattingEnabled = true;
+            this.cbGioiTinhNV.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cbGioiTinhNV.Location = new System.Drawing.Point(15, 316);
+            this.cbGioiTinhNV.Name = "cbGioiTinhNV";
+            this.cbGioiTinhNV.Size = new System.Drawing.Size(413, 24);
+            this.cbGioiTinhNV.TabIndex = 70;
+            // 
             // btnHuyNV
             // 
             this.btnHuyNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -164,6 +202,7 @@
             this.btnHuyNV.Text = "Hủy";
             this.btnHuyNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHuyNV.UseVisualStyleBackColor = false;
+            this.btnHuyNV.Click += new System.EventHandler(this.btnHuyNV_Click);
             // 
             // btnLuuNV
             // 
@@ -185,6 +224,7 @@
             this.btnLuuNV.Text = "Lưu";
             this.btnLuuNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuuNV.UseVisualStyleBackColor = false;
+            this.btnLuuNV.Click += new System.EventHandler(this.btnLuuNV_Click);
             // 
             // btnThemNV
             // 
@@ -206,6 +246,7 @@
             this.btnThemNV.Text = "Thêm";
             this.btnThemNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThemNV.UseVisualStyleBackColor = false;
+            this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
             // 
             // btnXoaNV
             // 
@@ -227,6 +268,7 @@
             this.btnXoaNV.Text = "Xóa";
             this.btnXoaNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoaNV.UseVisualStyleBackColor = false;
+            this.btnXoaNV.Click += new System.EventHandler(this.btnXoaNV_Click);
             // 
             // btnSuaNV
             // 
@@ -248,6 +290,7 @@
             this.btnSuaNV.Text = "Sửa";
             this.btnSuaNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSuaNV.UseVisualStyleBackColor = false;
+            this.btnSuaNV.Click += new System.EventHandler(this.btnSuaNV_Click);
             // 
             // txbTenNV
             // 
@@ -263,7 +306,7 @@
             // dtNgaySinhNV
             // 
             this.dtNgaySinhNV.Location = new System.Drawing.Point(16, 229);
-            this.dtNgaySinhNV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtNgaySinhNV.Margin = new System.Windows.Forms.Padding(4);
             this.dtNgaySinhNV.Name = "dtNgaySinhNV";
             this.dtNgaySinhNV.Size = new System.Drawing.Size(412, 22);
             this.dtNgaySinhNV.TabIndex = 48;
@@ -271,7 +314,7 @@
             // txbSDTNV
             // 
             this.txbSDTNV.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSDTNV.Location = new System.Drawing.Point(15, 420);
+            this.txbSDTNV.Location = new System.Drawing.Point(17, 406);
             this.txbSDTNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbSDTNV.Name = "txbSDTNV";
             this.txbSDTNV.Size = new System.Drawing.Size(413, 38);
@@ -281,7 +324,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 385);
+            this.label10.Location = new System.Drawing.Point(10, 372);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(162, 32);
             this.label10.TabIndex = 34;
@@ -291,7 +334,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 290);
+            this.label11.Location = new System.Drawing.Point(9, 281);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(111, 32);
             this.label11.TabIndex = 32;
@@ -338,52 +381,42 @@
             this.label14.TabIndex = 26;
             this.label14.Text = "Mã nhân viên:";
             // 
-            // dataGridView1
+            // dtgvNV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 79);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(939, 656);
-            this.dataGridView1.TabIndex = 8;
+            this.dtgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvNV.Location = new System.Drawing.Point(8, 79);
+            this.dtgvNV.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvNV.Name = "dtgvNV";
+            this.dtgvNV.RowHeadersWidth = 51;
+            this.dtgvNV.Size = new System.Drawing.Size(939, 656);
+            this.dtgvNV.TabIndex = 8;
+            this.dtgvNV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNV_CellClick);
             // 
-            // label1
+            // txbPassWordNV
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 32);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Tìm kiếm";
-            // 
-            // cbGioiTinhNV
-            // 
-            this.cbGioiTinhNV.FormattingEnabled = true;
-            this.cbGioiTinhNV.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ"});
-            this.cbGioiTinhNV.Location = new System.Drawing.Point(15, 336);
-            this.cbGioiTinhNV.Name = "cbGioiTinhNV";
-            this.cbGioiTinhNV.Size = new System.Drawing.Size(413, 24);
-            this.cbGioiTinhNV.TabIndex = 70;
+            this.txbPassWordNV.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPassWordNV.Location = new System.Drawing.Point(17, 495);
+            this.txbPassWordNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbPassWordNV.Name = "txbPassWordNV";
+            this.txbPassWordNV.Size = new System.Drawing.Size(413, 38);
+            this.txbPassWordNV.TabIndex = 73;
             // 
             // UC_NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgvNV);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UC_NhanVien";
             this.Size = new System.Drawing.Size(1405, 738);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvNV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -404,7 +437,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txbMaNV;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvNV;
         private FontAwesome.Sharp.IconButton btnHuyNV;
         private FontAwesome.Sharp.IconButton btnLuuNV;
         private FontAwesome.Sharp.IconButton btnThemNV;
@@ -412,5 +445,7 @@
         private FontAwesome.Sharp.IconButton btnSuaNV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbGioiTinhNV;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txbPassWordNV;
     }
 }

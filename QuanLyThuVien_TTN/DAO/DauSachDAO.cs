@@ -27,5 +27,61 @@ namespace QuanLyThuVien_TTN.DAO
             return ds;
         }
 
+        public List<DauSach> GetListDauSach()
+        {
+            List<DauSach> list = new List<DauSach>();
+            DataTable data = DataProvider.Instance.executeQuery("USP_GetDauSachList ");
+
+            foreach (DataRow item in data.Rows)
+            {
+                DauSach ds = new DauSach(item);
+                list.Add(ds);
+            }
+            return list;
+        }
+        public DauSach GetDauSachByMaDauSach(string madausach)
+        {
+            DauSach dausach = null;
+            string query = "select * from DAUSACH where MADAUSACH = " + madausach;
+            DataTable data = DataProvider.Instance.executeQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                dausach = new DauSach(item);
+                return dausach;
+            }
+
+            return dausach;
+        }
+        //Tim kiem
+        public List<DauSach> SearchDS(string tendausach, string madausach, string tennxb, string tentacgia, string theloai)
+        {
+            List<DauSach> list = new List<DauSach>();
+            string query = string.Format("select * from DAUSACH where (TENDAUSACH like N'{0}') OR " +
+                "(MADAUSACH like N'{1}') OR " +
+                "(TENNXB like N'{2}') OR " +
+                "(TENTACGIA like N'{3}') OR " +
+                "(THELOAI like N'{4}')", tendausach, madausach, tennxb, tentacgia, theloai);
+            DataTable data = DataProvider.Instance.executeQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                DauSach ds = new DauSach(item);
+                list.Add(ds);
+            }
+            return list;
+        }
+
+        public void DeleteSachByMaDauSach(string madausach)
+        {
+            DataProvider.Instance.executeQuery("delete from dbo.DAUSACH where MADAUSACH = " + madausach);
+        }
+        public bool DeleteDS(string mads)
+        {
+            string query = string.Format(" delete from dbo.DAUSACH where MADAUSACH = N'{0}' ", mads);
+            int result = DataProvider.Instance.executeNonQuery(query);
+
+            return result > 0;
+        }
     }
 }

@@ -38,11 +38,11 @@ namespace QuanLyThuVien_TTN
                 {
                     DauSach ds = DauSachDAO.Instance.getDauSachbyMaSach(txtMaSach.Text);
                     Sach s = SachDAO.Instance.getSachbyMaSach(txtMaSach.Text);
-                    txtTenSach.Text = ds.Tendausach;
+                    txtTenSach.Text = ds.TenDauSach;
                     ListViewItem listItem = new ListViewItem(txtMaSach.Text);
-                    listItem.SubItems.Add(ds.Tendausach);
-                    listItem.SubItems.Add(ds.Theloai);
-                    listItem.SubItems.Add(ds.TenTG);
+                    listItem.SubItems.Add(ds.TenDauSach);
+                    listItem.SubItems.Add(ds.TheLoai);
+                    listItem.SubItems.Add(ds.TenTacGia);
 
                     lsvSachMuon.Items.Add(listItem);
                 }
@@ -120,9 +120,9 @@ namespace QuanLyThuVien_TTN
                         DauSach ds = DauSachDAO.Instance.getDauSachbyMaSach(item);
                         Sach s = SachDAO.Instance.getSachbyMaSach(item);
                         ListViewItem listItem = new ListViewItem(item);
-                        listItem.SubItems.Add(ds.Tendausach);
-                        listItem.SubItems.Add(ds.Theloai);
-                        listItem.SubItems.Add(ds.TenTG);
+                        listItem.SubItems.Add(ds.TenDauSach);
+                        listItem.SubItems.Add(ds.TheLoai);
+                        listItem.SubItems.Add(ds.TenTacGia);
 
                         lsvTraSach.Items.Add(listItem);
                     }
